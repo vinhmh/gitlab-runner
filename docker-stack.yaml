@@ -10,7 +10,7 @@ services:
     hostname: gitlab-runner
     volumes:
      - RunnerVolume:/etc/gitlab-runner
-     - DockerVolume:/var/run/docker.sock
+     - /var/run/docker.sock:/var/run/docker.sock
     networks:
         - weoja
 
