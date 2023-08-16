@@ -1,0 +1,19 @@
+version: "3.7"
+networks:
+  weoja:
+    external: true
+    driver: overlay
+
+services:
+  gitlab-runner:
+    image: gitlab/gitlab-runner:alpine
+    hostname: gitlab-runner
+    volumes:
+     - RunnerVolume:/etc/gitlab-runner
+     - DockerVolume:/var/run/docker.sock
+    networks:
+        - weoja
+
+volumes:
+  RunnerVolume:
+  DockerVolume:
